@@ -1,0 +1,401 @@
+:root {
+    --color-primary: rgb(137, 205, 211);
+    --color-primary-light: rgb(137, 205, 211, 0.8);
+    --color-primary-glow: #0ff;
+    --color-secondary: rgb(240,255,255);
+    --color-tertiary-dark: rgb(65,74,76);
+    --color-tertiary-lightDark: rgb(35,43,43);
+    --color-tertiary-lessDark: rgb(50, 55, 55);
+    --color-hover: rgb(14,17,17);
+    --black: rgb(0,0,0);
+    --white:rgb(245,245,245);
+    --transition: all 0.3s linear;
+    --radius: 0.5rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --spacer-base: 1.5rem;
+    --font-family: 'Unbounded', cursive;
+    --html-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --clr-bcg: #fff;
+    --clr-font: #282c35;
+    --clr-primary: #d23669;
+    --clr-grey: #64748b;
+  }
+  
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  /* Set core root defaults */
+  html {
+    line-height: 1.5;
+    font-family: var(--html-font-family);
+  }
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+  /* Set core body defaults */
+  body {
+    background-color: var(--color-tertiary-dark);
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    margin: 0;
+}
+  /* Update default margin */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-family);
+  }
+  
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
+  
+  /* A elements that don't have a class get default styles */
+  a {
+    text-decoration-skip-ink: auto;
+    color: var(--color-secondary-dark);
+    transition:
+      transform .2s,
+      bottom .2s,
+      top .2s,
+      left .2s,
+      right .2s,
+      color .2s,
+      border-color .2s,
+      background-color .2s,
+      opacity .2s,
+      box-shadow .2s;
+  }
+  
+  a:hover,
+  a:focus-visible {
+    color: var(--color-secondary);
+  }
+  
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+  
+  svg {
+    fill: currentColor;
+  }
+  
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  
+  /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+/*-------------
+    Header
+--------------*/
+
+header{
+    /*background-color: rgb(216, 108, 112);*/
+    background-color: var(--color-primary);
+    position:fixed;
+    padding-top: 1rem;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top:0;
+    border-bottom: .25rem solid var(--color-secondary);
+}
+.title{
+   text-align: center;
+   margin-bottom: 0.8rem;
+   color: var(--color-tertiary-lessDark);
+}
+
+/*-------------
+    Main
+--------------*/
+
+.playlist{
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: -43rem;
+    margin-left: 42rem;
+    margin-right: 0rem;
+    background-color: rgb(67,76,78);
+    box-shadow: var(--dark-shadow);
+}
+.track__details{
+   text-align: center;
+   margin-right: 6rem;
+   color: var(--white) ;
+}
+.track__time{
+  margin-right: 2rem;
+  margin-top: 2rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.track__item{
+    display: flex;
+    height: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    list-style-type: none;
+    margin-right: 1.2rem;
+    padding-right: 0.5rem;
+    padding-left: 0rem; 
+    background-color: var(--color-tertiary-lightDark);
+    cursor: pointer;
+    box-shadow: var(--light-shadow);
+    border-left: solid 0.5rem var(--color-tertiary-lightDark);
+}
+.select{
+  background-color: var(--color-hover);
+  border-left: solid 0.5rem var(--color-primary-glow);
+  box-shadow: 0px 8px 80px 0px var(--color-primary-glow);
+}
+.select .track__details{
+  color: var(--color-primary-glow);
+}
+.track__item:hover{
+  background-color: var(--color-hover);
+  transform: scale(1.07);
+  box-shadow: var(--dark-shadow);
+  border-left: solid 0.5rem var(--color-primary-glow);
+  
+}
+.track__thumb{
+    width: 100px;
+}
+.thumbnail{
+  height: 100px;
+}
+.album_art__full{
+  display: inline-block;
+  width: 600px;
+  margin-left: 2rem;
+  margin-top: 8rem;
+  border-radius:5rem;
+  transition: var(--transition);
+}
+
+.shakeIt {
+  animation: bounce-zoom 1.5s ease-in-out infinite;
+}
+
+
+@keyframes bounce-zoom {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+}
+  50% {
+    transform: translateY(-1px) scale(1.02);
+}
+}
+.album_img{
+  width: 600px;
+  height: 600px;
+}
+
+/*-------------
+    Footer
+--------------*/
+
+footer{
+    position: fixed;
+    background-color: var(--color-primary-light);
+    bottom: 0;
+    padding-top: 1rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-bottom: 1rem;
+}
+.controls{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    margin-left: 4rem;
+    font-size:0px;
+}
+.times{
+  color: var(--color-tertiary-lessDark);
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-right: 5rem;
+  font-size: 1.2rem;
+}
+.progress{
+    position: fixed;
+    width:100%;
+    background:var(--white);
+    height:0.5rem;
+    position: fixed;
+    bottom: 4.6rem;
+    cursor: pointer;
+}
+.played{
+    width:0%;
+    background:var(--color-primary);
+    height:0.5rem;
+    transition: var(--transition);
+}
+#btnShuffle{
+  margin-top: 0.2rem;
+  color: var(--white);
+  background-color: var(--color-tertiary-lightDark);
+  border-color: var(--color-primary);
+  border-style: solid; 
+  cursor: pointer;
+}
+#btnShuffle:hover{
+  background-color: var(--white);
+  color: var(--black);
+}
+#btnPrev,
+#btnPlay,
+#btnNext{
+  color: var(--color-tertiary-lessDark);
+  border:none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 700;
+  font-weight: 900;
+}
+#btnPrev:hover,
+#btnPlay:hover,
+#btnNext:hover{
+  color: var(--color-secondary);
+  box-shadow: 0px 8px 80px 0px var(--color-primary-glow);
+  border:none;
+  background-color: var(--color-primary-light);
+  border-radius: 2rem 1.2rem 2rem 1.2rem;
+}
+
+.icon {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+/*--------------------
+  Responsive Design
+----------------------*/
+
+@media only screen and (max-width: 78em) {
+  main{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 45rem;
+  }
+  .album_art__full{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+  }
+  .playlist{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+  
+}  
+ @media only screen and (max-width: 45rem) {
+  main{
+    gap: 42rem;
+  }
+  .album_art__full{
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+  }
+  .album_img{
+    width: 400px;
+    height: 400px;
+  }
+   .track__item{
+    margin-left: -1.5rem;
+   }  
+  .playlist{
+    display: flex;
+    flex-direction: column;
+}
+  .track__details{
+  margin-right: 2rem;
+  top: 0.3rem;
+}
+.times{
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+.controls{
+    margin-left:1rem;
+}
+} 
+@keyframes changeBackground {
+  0% {
+    background: linear-gradient(to bottom right, #FF4136, #FF851B, #FFDC00, #2ECC40, #0074D9);
+  }
+  20% {
+    background: linear-gradient(to bottom right, #FFDC00, #39CCCC, #FF851B, #DDDDDD, #01FF70);
+  }
+  40% {
+    background: linear-gradient(to bottom right, #7FDBFF, #2ECC40, #FF4136, #FFDC00, #B10DC9);
+  }
+  60% {
+    background: linear-gradient(to bottom right, #01FF70, #FF851B, #0074D9, #2ECC40, #FF4136);
+  }
+  80% {
+    background: linear-gradient(to bottom right, #DDDDDD, #7FDBFF, #FFDC00, #FF851B, #2ECC40);
+  }
+  100% {
+    background: linear-gradient(to bottom right, #B10DC9, #39CCCC, #FF4136, #01FF70, #0074D9);
+  }
+}
+
+.jamaica{
+  animation: changeBackground 15s ease-in-out infinite;
+}
+
+
+
