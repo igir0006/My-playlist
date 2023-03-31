@@ -272,8 +272,8 @@ footer{
     width:100%;
     background:var(--white);
     height:0.5rem;
-    position: fixed;
     bottom: 4.6rem;
+    margin-bottom: 0;
     cursor: pointer;
 }
 .played{
